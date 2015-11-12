@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>CMSC 127 ST-1L</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../main.css">
+	</head>
+
+	<body>
+			<header>
+				<img src="../images/icon2.jpg" alt="icon" 	style="width:304px;height:200px;position;fixed;border-radius:100px;">
+				<h1>CLASSBOOK</h1>
+				<br>
+			</header>
+			
+			<div id="bar">
+				<div id="left" style="float:left;width:80%;padding:5px;">
+					<form action="../Panel.html">
+					<input type="button" type="https://www.google.com" value="Options"/>
+					<input type="submit" value="Home">
+					</form>
+				</div>
+				<div id="right"style="float:left;width:20%;padding:5px">
+					<form>
+					<input type="text" id="search" placeholder="Search">
+					<input type="submit" id="Submit" value="Find">
+					</form>
+				</div>
+			</div>						
+			<br>
+			<hr>
+			<div id="banner">
+				<center>
+				<h1> CMSC 127 ST-1L</h1>
+				<h5> Primavera-Angeles</h5>
+				</center>
+				<br>
+			</div>
+			
+			<br>
+			<div id="deadlines" style="width:15%;padding:5px;float:left;border-right-style:solid;border-width:10px;border-color:#600000">
+				<h3> Deadlines </h3>
+				<hr>
+				<div id="dblock">
+					CMSC 127 ST-1L<br>
+					Initial Interface<br>
+					Deadline:12/12/2012<br>
+					<br>
+					CMSC 124 T-2L<br>
+					Stuff we dont want<br>
+					Deadline:11/11/2011<br>
+					<br>
+					CMSC 131 C-3L<br>
+					Assemble the Avengers<br>
+					Deadline:10/10/2010<br>
+					<br>
+					CMSC 100 D-4L<br>
+					Git Rekt<br>
+					Deadline:09/09/2009<br>
+					<br>
+					SPCM 1 U1-6R<br>
+					Exam<br>
+					Deadline:08/08/2008<br>
+					<br>
+					MGT 111 H<br>
+					Infiltrate Pentagon<br>
+					Deadline:09/11/2000<br>
+					<br>
+				</div>	
+			</div>
+
+			<div class="post" style="padding:5px;border-left-style:solid;border-width:5px;">
+				<p class="poster">
+					The quick brown fox jumps over the lazy dog.
+				</p>
+				<div class="demcomments"></div>
+				<br>
+				<textarea rows="5" cols="70">Enter a comment.</textarea>
+				<input type="submit" name="Comment" value="Post" />
+				<br>
+			
+			</div>	
+			<footer>
+				Aragones Feudo Vibar 2015 CMSC 127 1st semester AY: 2015-2016 
+			</footer>
+				
+	</body>
+
+</html>	
