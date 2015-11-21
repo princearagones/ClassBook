@@ -67,7 +67,7 @@ header input[type="button"], header p, header h1{
 	float:left;
 }
 
-div#classroompanel{
+div.classroompanel{
 	float:left;
 	margin-left: 4%;
 	margin-bottom: 2%;
@@ -77,8 +77,8 @@ div#classroompanel{
 	border-style:solid;
 	border-width:10px;
 	border-color:#600000;
-	height: 75px;
-	width: 15%;
+	height: 50%;
+	width: 25%;
 	border-radius: 30px;
 }
 

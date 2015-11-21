@@ -5,7 +5,28 @@ var user;
 
 (function init() {
 	$(document).ready(function(){
-
+		$("#formToAdd").hide();
+		$("#addClassRoom").submit(function(event){
+			event.preventDefault();
+			var $form = $(this),
+				coursecode = $form.find("input[name='courecode']").val(),
+				coursetitle = $form.find("input[name='coursetitle']").val(),
+				section = $form.find("input[name='section']").val(),
+				url = $form.attr('action');
+				alert(coursecode);
+				var posting = $.post(url, {
+					coursecode: coursecode,
+					coursetitle: coursetitle,
+					section: section,
+					userid: user.userid,
+					empno: user.employeeno
+				});
+				
+				posting.done(function(){
+					alert("Classroom added.");
+					window.location.href = "/panel";
+				});
+		});
 		$.get("/teacher", function(datas) {
 			teachers=datas.rows;
 			});
@@ -44,17 +65,16 @@ var user;
 			}
 			var container = document.getElementById("container");
 			for(var i=0;i<classes.length;i++){
-
+				
 				if(user.type=="teacher" && classes[i].empno == user.employeeno){
 				var a = document.createElement("a")
 				var pan = document.createElement("div");
 				pan.classList.add('classroompanel');
 				var coursetitle= document.createElement("h4");
-				var titletext=document.createTextNode(classes[i].coursetitle);
+				var titletext=document.createTextNode(classes[i].coursetitle);	
 				var section = document.createElement("p");
 				var sectiontext=document.createTextNode(classes[i].section);
-				a.setAttribute("href","Classroom1.ejs");
-
+				
 				section.appendChild(sectiontext);
 				coursetitle.appendChild(titletext);
 				pan.appendChild(coursetitle);
@@ -74,10 +94,10 @@ var user;
 				var pan = document.createElement("div");
 				pan.classList.add('classroompanel');
 				var coursetitle= document.createElement("h4");
-				var titletext=document.createTextNode(classes[i].coursetitle);
+				var titletext=document.createTextNode(classes[i].coursetitle);	
 				var section = document.createElement("p");
 				var sectiontext=document.createTextNode(classes[i].section);
-
+				
 				section.appendChild(sectiontext);
 				coursetitle.appendChild(titletext);
 				pan.appendChild(coursetitle);
@@ -88,7 +108,7 @@ var user;
 				var teacherText =document.createTextNode("Teacher not specified");
 				teachers.forEach(function(teacher){
 				if(teacher.employeeno == classes[i].empno){
-						teacherText=document.createTextNode(teacher.name);
+						teacherText=document.createTextNode(teacher.name);	
 					}
 				});
 				teacher.appendChild(teacherText);
@@ -102,4 +122,5 @@ var user;
 	});
 })();
 function createClass(){
+		$("#formToAdd").fadeToggle();
 		}

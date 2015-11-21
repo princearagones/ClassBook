@@ -7,7 +7,8 @@ module.exports = function(router){
 	router.route('/account')
 		.get(account.find);
 	router.route('/class')
-		.get(classes.find);
+		.get(classes.find)
+		.post(classes.insert);
 	router.route('/teacher')
 		.get(teacher.find);
 	router.route('/student')

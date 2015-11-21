@@ -3,6 +3,7 @@
 	<head>
 		<title> Classrooms </title>
 		<meta charset = 'utf-8' />
+		<link rel="stylesheet" type="text/css"href ="Bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="main.css">
 		<script src="JQuery/jquery-1.11.3.min.js"></script>
 		<script src="Bootstrap/js/bootstrap.min.js"></script>
@@ -14,7 +15,17 @@
 			<h1>CLASSBOOK</h1> <br /> <br/>
 			<a href="/"><input  type="button" value="Log Out" onclick="alert('Successfully logged out')" > </a>
 			<input id="createClass"type="button" value="+ Add Classroom" onclick="createClass()"> <br />
-			<p id="welcome">Hi User! Logged in as: Student</p>
+			<p id="welcome">Hi User! Logged in as: </p>
+
+			<div id="formToAdd" style="float:right;">
+			<form class="form-horizontal" role="form"  action="/panel">
+                <h4>Create new classroom</h4>
+				Course Code <input type="text" name="coursecode"class="form-control" autofocus/><br/>
+				Course Title <input type="text" name="coursetitle"class="form-control" autofocus/><br/>
+				Section <input type="text" name="coursecode"class="form-control" autofocus/><br/>
+				<input id="addClassRoom" type="submit" class="btn btn-success" value="Create"/>
+			</form>
+			</div>
 				</header>
 	<br>
 	<hr>
