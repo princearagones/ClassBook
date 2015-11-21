@@ -89,8 +89,13 @@ var user;
 					pan.innerHTML+= "<br/>";
 					var deleteB = document.createElement("input");
 					deleteB.value = "Delete";
+					deleteB.id = i;
 					deleteB.className ="btn btn-danger";
 					deleteB.type = "button";
+					deleteB.addEventListener("click", function(){
+						console.log(this.id);
+						deleteClass(classes[this.id]);
+					});
 					deleteB.style= "height=150%;width=150%";
 					pan.appendChild(deleteB);
 				a.appendChild(pan)
@@ -131,3 +136,18 @@ var user;
 function createClass(){
 		$("#formToAdd").fadeToggle();
 		}
+function deleteClass(classToDelete){
+		var r = confirm("Are you sure you want to delete this class?");
+			if (r == true) {
+				console.log(classToDelete);
+				$.ajax({
+				   url: '/class/'+classToDelete.coursecode,
+				   type: 'DELETE',
+				   success: function(response) {
+				   		alert("Successfully deleted");
+						window.location.href = "/panel";
+				   }
+				});
+			} else {
+			}
+	}
