@@ -17,12 +17,12 @@ h1{
 	font-family:"Courier New", Courier, monospace;
 }
 
-input[type="submit"] ,input[type="button"],button{
-  background: #004848;
+.defaultButton{
+ background: #004848;
   color:#D8D8D8;
 }
 
-input[type="submit"]:hover, input[type="button"]:hover, button:hover{
+.defaultButton:hover{
   background: #BD8F24;
 }
 
@@ -73,7 +73,7 @@ div.classroompanel{
 	margin-bottom: 2%;
 	position:center;
 	background-color:#004848;
-	padding:75px;
+	padding:50px;
 	border-style:solid;
 	border-width:10px;
 	border-color:#600000;
@@ -82,7 +82,7 @@ div.classroompanel{
 	border-radius: 30px;
 }
 
-div#classroompanel:hover{
+div.classroompanel:hover{
 	background-color:#C0C0A8;
 	color: #004848;
 }

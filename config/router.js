@@ -9,6 +9,10 @@ module.exports = function(router){
 	router.route('/class')
 		.get(classes.find)
 		.post(classes.insert);
+	router.route('/class/:coursecode')
+		.get(classes.findOne)
+		.put(classes.update)
+		.delete(classes.remove);
 	router.route('/teacher')
 		.get(teacher.find);
 	router.route('/student')

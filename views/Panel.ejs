@@ -13,13 +13,13 @@
 		<header>	
 			<img src="images/icon2.jpg" alt="icon" style="postion:absolute;width:304px;height:200px;position;fixed;border-radius:100px;">
 			<h1>CLASSBOOK</h1> <br /> <br/>
-			<a href="/"><input  type="button" value="Log Out" onclick="alert('Successfully logged out')" > </a>
-			<input id="createClass"type="button" value="+ Add Classroom" onclick="createClass()"> <br />
+			<a href="/"><input  class="btn btn-sm btn-danger"type="button" value="Log Out" onclick="alert('Successfully logged out')" > </a>
+			<input id="createClass"type="button"class="btn btn-sm btn-info" value="+ Add Classroom" onclick="createClass()"> <br />
 			<p id="welcome">Hi User! Logged in as: </p>
 			<br/>
 			<br/>
 
-			<div id="formToAdd" style="float:right;margin-right:0px;">
+			<div id="formToAdd" style="float:right;margin-right:0px;border-radius:25px">
 			<form class="form-horizontal" role="form" method="post" action="/class" id="addClassRoom">
                 <h4>Create new classroom</h4>
 				Course Code <input type="text" name="coursecode" class="form-control" autofocus/><br/>

@@ -48,12 +48,38 @@ exports.insert = function(req, res, next) {
 };
 
 exports.findOne = function(req, res, next) {
-	db.query("SELECT * FROM class WHERE coursecode=$1", [req.params.id], function(err, rows) {
+	db.query("SELECT * FROM class WHERE coursecode=$1", [req.params.coursecode], function(err, rows) {
 		if (err) return next(err);
 		if (rows.length === 0) {
-			res.send(404, {message: 'Class not found.'});
+			res.status(404).send({message: 'Class not found.'});
 		} else {
-			res.send(rows[0]);
+			res.send(rows.rows[0]);
 		}
 	});
 };
+
+exports.update = function(req, res, next) {
+	db.query("UPDATE class SET $1 WHERE coursecode=$2", [req.body, req.params.coursecode], function(err, rows) {
+		if (err) return next(err);
+		selectOne(req.params.coursecode, function(updatedRow) {
+			if (!updatedRow) {
+				res.send(553, {message: 'Class ('+req.params.id+') was not updated.'});
+			} else {
+				res.send(updatedRow);
+			}
+		});
+	});
+};
+
+exports.remove = function(req, res, next) {
+	db.query("DELETE FROM class WHERE coursecode=$1", [req.params.coursecode], function(err, row) {
+		if (err) return next(err);
+		if (row.affectedRows === 0) {
+			res.send(554, {message: 'Class ('+req.params.coursecode+') was not removed.'});
+		} else {
+			res.send(202, row);
+		}
+		
+	});
+};
+

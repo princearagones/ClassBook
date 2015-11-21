@@ -82,8 +82,17 @@ var user;
 					var manage = document.createElement("input");
 					manage.value = "Manage";
 					manage.type = "button";
+					manage.className = "btn btn-primary"
 					manage.style= "height=150%;width=150%";
 					pan.appendChild(manage);
+					pan.innerHTML+= "<br/>";
+					pan.innerHTML+= "<br/>";
+					var deleteB = document.createElement("input");
+					deleteB.value = "Delete";
+					deleteB.className ="btn btn-danger";
+					deleteB.type = "button";
+					deleteB.style= "height=150%;width=150%";
+					pan.appendChild(deleteB);
 				a.appendChild(pan)
 				container.appendChild(a);
 				}
