@@ -27,8 +27,7 @@ var user;
 
 			});
 			if(tempuser.split("\"")[15]== "teacher"){
-				//alert("user is teacher");
-				teachers.forEach(function(teacher){
+					teachers.forEach(function(teacher){
 					if(tempuser.split("\"")[3] == teacher.userid.toString()){
 						user = teacher;
 					}
@@ -45,7 +44,8 @@ var user;
 			}
 			var container = document.getElementById("container");
 			for(var i=0;i<classes.length;i++){
-				console.log(classes[i].coursetitle +" "+ classes[i].section);
+				
+				if(user.type=="teacher" && classes[i].empno == user.employeeno){
 				var a = document.createElement("a")
 				var pan = document.createElement("div");
 				pan.classList.add('classroompanel');
@@ -53,27 +53,52 @@ var user;
 				var titletext=document.createTextNode(classes[i].coursetitle);	
 				var section = document.createElement("p");
 				var sectiontext=document.createTextNode(classes[i].section);
-				var teacher = document.createElement("p");
-				var teacherText =document.createTextNode("Teacher not specified");
-				teachers.forEach(function(teacher){
-					if(teacher.employeeno == classes[i].empno){
-						teacherText=document.createTextNode(teacher.name);	
-					}
-				});
-				teacher.appendChild(teacherText);
+				
 				section.appendChild(sectiontext);
 				coursetitle.appendChild(titletext);
 				pan.appendChild(coursetitle);
 				pan.appendChild(document.createElement("br"));
 				pan.appendChild(section);
 				pan.appendChild(document.createElement("br"));
-				pan.appendChild(teacher);
-				pan.appendChild(document.createElement("br"));
-
+					var manage = document.createElement("input");
+					manage.value = "Manage";
+					manage.type = "button";
+					manage.style= "height=150%;width=150%";
+					pan.appendChild(manage);
 				a.appendChild(pan)
 				container.appendChild(a);
+				}
+				else if(user.type=="student"){
+				var a = document.createElement("a")
+				var pan = document.createElement("div");
+				pan.classList.add('classroompanel');
+				var coursetitle= document.createElement("h4");
+				var titletext=document.createTextNode(classes[i].coursetitle);	
+				var section = document.createElement("p");
+				var sectiontext=document.createTextNode(classes[i].section);
+				
+				section.appendChild(sectiontext);
+				coursetitle.appendChild(titletext);
+				pan.appendChild(coursetitle);
+				pan.appendChild(document.createElement("br"));
+				pan.appendChild(section);
+				pan.appendChild(document.createElement("br"));
+				var teacher = document.createElement("p");
+				var teacherText =document.createTextNode("Teacher not specified");
+				teachers.forEach(function(teacher){
+				if(teacher.employeeno == classes[i].empno){
+						teacherText=document.createTextNode(teacher.name);	
+					}
+				});
+				teacher.appendChild(teacherText);
+				pan.appendChild(teacher);
+				pan.appendChild(document.createElement("br"));
+				a.appendChild(pan)
+				container.appendChild(a);
+				}
 			}
 		});
-	
 	});
 })();
+function createClass(){
+		}
