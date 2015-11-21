@@ -4,6 +4,6 @@ exports.find = function(req,res,next){
 	db.query("SELECT * FROM teacher",
 		function(err,rows){
 			if(err) return next(err); 
-			res.send(rows);
+			res.send(rows.rows);
 		});
 };

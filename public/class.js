@@ -9,33 +9,31 @@ var user;
 		$("#addClassRoom").submit(function(event){
 			event.preventDefault();
 			var $form = $(this),
-				coursecode = $form.find("input[name='courecode']").val(),
-				coursetitle = $form.find("input[name='coursetitle']").val(),
-				section = $form.find("input[name='section']").val(),
-				url = $form.attr('action');
-				alert(coursecode);
-				var posting = $.post(url, {
-					coursecode: coursecode,
-					coursetitle: coursetitle,
-					section: section,
-					userid: user.userid,
-					empno: user.employeeno
-				});
-				
-				posting.done(function(){
+				rescoursecode = $("input[name='coursecode']").val();
+				rescoursetitle = $("input[name='coursetitle']").val();
+				ressection = $("input[name='section']").val();
+				data = {
+					"coursecode": rescoursecode,
+					"coursetitle": rescoursetitle,
+					"section": ressection,
+					"userid": user.userid,
+					"empno": user.employeeno
+				}
+				var posting = $.post("/class", data);
+				//posting.done(function(){
 					alert("Classroom added.");
 					window.location.href = "/panel";
-				});
+				//});
 		});
 		$.get("/teacher", function(datas) {
-			teachers=datas.rows;
+			teachers=datas;
 			});
 		$.get("/student", function(datas) {
-			students=datas.rows;
+			students=datas;
 			});
 		$.get("/class", function(data) {
 			tempuser = "";
-			classes=data.rows;
+			classes=data;
 			x = document.cookie;
 			var temp = new Array();
 			temp = x.split(";");

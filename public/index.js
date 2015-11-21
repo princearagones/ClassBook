@@ -5,13 +5,13 @@ var students = [];
 (function init() {
 	$(document).ready(function(){
 		$.get("/teacher",function(data){
-			teachers = data.rows;
+			teachers = data;
 		});
 		$.get("/student",function(data){
-			students = data.rows;
+			students = data;
 		});
 		$.get("/account", function(data) {
-			account=data.rows;
+			account=data;
 		});
 
 		$("#addCurriculum").submit(function(event){
@@ -43,7 +43,6 @@ function validateForm() {
 	account.forEach(function(acc){
 		if (x === acc.username && y === acc.password) {	
 			document.cookie = "userid="+JSON.stringify(acc);
-			alert(document.cookie);
 			flag = 1;
 		}
 	});

@@ -10,20 +10,22 @@
 		<script src= class.js></script>
 	</head>
 	<body style="background-color:#600000">
-		<header>	<table style="width:100%;border-style:solid;cellpadding:10px">
+		<header>	
 			<img src="images/icon2.jpg" alt="icon" style="postion:absolute;width:304px;height:200px;position;fixed;border-radius:100px;">
 			<h1>CLASSBOOK</h1> <br /> <br/>
 			<a href="/"><input  type="button" value="Log Out" onclick="alert('Successfully logged out')" > </a>
 			<input id="createClass"type="button" value="+ Add Classroom" onclick="createClass()"> <br />
 			<p id="welcome">Hi User! Logged in as: </p>
+			<br/>
+			<br/>
 
-			<div id="formToAdd" style="float:right;">
-			<form class="form-horizontal" role="form"  action="/panel">
+			<div id="formToAdd" style="float:right;margin-right:0px;">
+			<form class="form-horizontal" role="form" method="post" action="/class" id="addClassRoom">
                 <h4>Create new classroom</h4>
-				Course Code <input type="text" name="coursecode"class="form-control" autofocus/><br/>
-				Course Title <input type="text" name="coursetitle"class="form-control" autofocus/><br/>
-				Section <input type="text" name="coursecode"class="form-control" autofocus/><br/>
-				<input id="addClassRoom" type="submit" class="btn btn-success" value="Create"/>
+				Course Code <input type="text" name="coursecode" class="form-control" autofocus/><br/>
+				Course Title <input type="text" name="coursetitle" class="form-control" autofocus/><br/>
+				Section <input type="text" name="section"class="form-control" autofocus/><br/>
+				<input  type="submit" class="btn btn-success" value="Create"/>
 			</form>
 			</div>
 				</header>

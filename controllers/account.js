@@ -4,7 +4,7 @@ exports.find = function(req,res,next){
 	db.query("SELECT * FROM account",
 		function(err,rows){
 			if(err) return next(err); 
-			res.send(rows);
+			res.send(rows.rows);
 		});
 /*
 exports.insert = function(req, res, next) {
