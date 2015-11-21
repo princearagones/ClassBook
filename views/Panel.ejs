@@ -22,9 +22,9 @@
 			<div id="formToAdd" style="float:right;margin-right:0px;border-radius:25px">
 			<form class="form-horizontal" role="form" method="post" action="/class" id="addClassRoom">
                 <h4>Create new classroom</h4>
-				Course Code <input type="text" name="coursecode" class="form-control" autofocus/><br/>
-				Course Title <input type="text" name="coursetitle" class="form-control" autofocus/><br/>
-				Section <input type="text" name="section"class="form-control" autofocus/><br/>
+				Course Code <input type="text" name="coursecode" class="form-control" autofocus="" required="" pattern="[a-zA-Z0-9]{1,5}"placeholder="Max of 5 alphanumeric characters only"/><br/>
+				Course Title <input type="text" name="coursetitle" class="form-control" autofocus="" required=""/><br/>
+				Section <input type="text" name="section"class="form-control" autofocus="" required=""/><br/>
 				<input  type="submit" class="btn btn-success" value="Create"/>
 			</form>
 			</div>

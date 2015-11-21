@@ -8,6 +8,7 @@ var user;
 		$("#formToAdd").hide();
 		$("#addClassRoom").submit(function(event){
 			event.preventDefault();
+			var flag = 0;
 			var $form = $(this),
 				rescoursecode = $("input[name='coursecode']").val();
 				rescoursetitle = $("input[name='coursetitle']").val();
@@ -19,11 +20,20 @@ var user;
 					"userid": user.userid,
 					"empno": user.employeeno
 				}
-				var posting = $.post("/class", data);
+				classes.forEach(function(classRoom){
+					if(classRoom.coursecode == rescoursecode) flag = 1;
+				});
+				if(flag === 1){
+					alert("Course code already exist");
+				}
+				else if (flag ===0){
+					var posting = $.post("/class", data);
 				//posting.done(function(){
 					alert("Classroom added.");
 					window.location.href = "/panel";
 				//});
+				}
+				
 		});
 		$.get("/teacher", function(datas) {
 			teachers=datas;
