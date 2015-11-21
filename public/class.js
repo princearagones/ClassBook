@@ -44,16 +44,17 @@ var user;
 			}
 			var container = document.getElementById("container");
 			for(var i=0;i<classes.length;i++){
-				
+
 				if(user.type=="teacher" && classes[i].empno == user.employeeno){
 				var a = document.createElement("a")
 				var pan = document.createElement("div");
 				pan.classList.add('classroompanel');
 				var coursetitle= document.createElement("h4");
-				var titletext=document.createTextNode(classes[i].coursetitle);	
+				var titletext=document.createTextNode(classes[i].coursetitle);
 				var section = document.createElement("p");
 				var sectiontext=document.createTextNode(classes[i].section);
-				
+				a.setAttribute("href","Classroom1.ejs");
+
 				section.appendChild(sectiontext);
 				coursetitle.appendChild(titletext);
 				pan.appendChild(coursetitle);
@@ -73,10 +74,10 @@ var user;
 				var pan = document.createElement("div");
 				pan.classList.add('classroompanel');
 				var coursetitle= document.createElement("h4");
-				var titletext=document.createTextNode(classes[i].coursetitle);	
+				var titletext=document.createTextNode(classes[i].coursetitle);
 				var section = document.createElement("p");
 				var sectiontext=document.createTextNode(classes[i].section);
-				
+
 				section.appendChild(sectiontext);
 				coursetitle.appendChild(titletext);
 				pan.appendChild(coursetitle);
@@ -87,7 +88,7 @@ var user;
 				var teacherText =document.createTextNode("Teacher not specified");
 				teachers.forEach(function(teacher){
 				if(teacher.employeeno == classes[i].empno){
-						teacherText=document.createTextNode(teacher.name);	
+						teacherText=document.createTextNode(teacher.name);
 					}
 				});
 				teacher.appendChild(teacherText);
