@@ -1,12 +1,17 @@
 var account = [];
+var teachers = [];
+var students = [];
 
 (function init() {
 	$(document).ready(function(){
+		$.get("/teacher",function(data){
+			teachers = data.rows;
+		});
+		$.get("/student",function(data){
+			students = data.rows;
+		});
 		$.get("/account", function(data) {
 			account=data.rows;
-			for(var i=0;i<account.length;i++){
-				console.log(account[i].username +" "+ account[i].type);
-			}
 		});
 
 		$("#addCurriculum").submit(function(event){
@@ -35,16 +40,15 @@ function validateForm() {
 	var x = document.getElementById("Username").value;
 	var y = document.getElementById("Password").value;
 	var flag = 0;
-	console.log(x);
-	console.log(y);
 	account.forEach(function(acc){
-		console.log(acc.username);
-		console.log(acc.password);
-		if (x === acc.username && y === acc.password) {
+		if (x === acc.username && y === acc.password) {	
+			document.cookie = "userid="+JSON.stringify(acc);
+			alert(document.cookie);
 			flag = 1;
 		}
 	});
-	if(flag === 1){return true;}
+	if(flag === 1){
+		return true;}
 	else{
 	alert("Invalid Username or password");
 	return false;

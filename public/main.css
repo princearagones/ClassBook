@@ -56,7 +56,7 @@ header input[type="button"], header p, header h1{
 	float:left;
 }
 
-div#classroompanel{
+div.classroompanel{
 	float:left;
 	margin-left: 4%;
 	margin-bottom: 2%;
@@ -71,7 +71,7 @@ div#classroompanel{
 	border-radius: 30px;
 }
 
-div#classroompanel:hover{
+div.classroompanel:hover{
 	background-color:#C0C0A8;
 	color: #004848;
 }

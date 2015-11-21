@@ -1,0 +1,79 @@
+var classes = [];
+var teachers = [];
+var students = [];
+var user;
+
+(function init() {
+	$(document).ready(function(){
+
+		$.get("/teacher", function(datas) {
+			teachers=datas.rows;
+			});
+		$.get("/student", function(datas) {
+			students=datas.rows;
+			});
+		$.get("/class", function(data) {
+			tempuser = "";
+			classes=data.rows;
+			x = document.cookie;
+			var temp = new Array();
+			temp = x.split(";");
+			temp.forEach(function(obj){
+				keyvalue=[];
+				keyvalue = obj.split("=");
+				if(keyvalue[0].trim() == "userid"){
+					tempuser = keyvalue[1];
+				}
+
+			});
+			if(tempuser.split("\"")[15]== "teacher"){
+				//alert("user is teacher");
+				teachers.forEach(function(teacher){
+					if(tempuser.split("\"")[3] == teacher.userid.toString()){
+						user = teacher;
+					}
+				});
+				$("#welcome").text("Hi "+user.name+"! Logged in as "+user.type);
+			}
+			else if(tempuser.split("\"")[15] == "student"){
+				students.forEach(function(student){
+					if(tempuser.split("\"")[3] == student.userid.toString()){
+						user = student;
+					}
+				});
+				$("#welcome").text("Hi "+user.name+"! Logged in as "+user.type);
+			}
+			var container = document.getElementById("container");
+			for(var i=0;i<classes.length;i++){
+				console.log(classes[i].coursetitle +" "+ classes[i].section);
+				var a = document.createElement("a")
+				var pan = document.createElement("div");
+				pan.classList.add('classroompanel');
+				var coursetitle= document.createElement("h4");
+				var titletext=document.createTextNode(classes[i].coursetitle);	
+				var section = document.createElement("p");
+				var sectiontext=document.createTextNode(classes[i].section);
+				var teacher = document.createElement("p");
+				var teacherText =document.createTextNode("Teacher not specified");
+				teachers.forEach(function(teacher){
+					if(teacher.employeeno == classes[i].empno){
+						teacherText=document.createTextNode(teacher.name);	
+					}
+				});
+				teacher.appendChild(teacherText);
+				section.appendChild(sectiontext);
+				coursetitle.appendChild(titletext);
+				pan.appendChild(coursetitle);
+				pan.appendChild(document.createElement("br"));
+				pan.appendChild(section);
+				pan.appendChild(document.createElement("br"));
+				pan.appendChild(teacher);
+				pan.appendChild(document.createElement("br"));
+
+				a.appendChild(pan)
+				container.appendChild(a);
+			}
+		});
+	
+	});
+})();
