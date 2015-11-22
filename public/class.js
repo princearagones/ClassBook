@@ -2,6 +2,7 @@ var classes = [];
 var teachers = [];
 var students = [];
 var classesEnrolled = [];
+var studentclass = [];
 var user;
 
 (function init() {
@@ -66,6 +67,9 @@ var user;
 				//});
 				}
 		});
+		$.get("/studentEnrolled", function(data) {
+			studentclass=data;
+			});
 
 		$.get("/teacher", function(data) {
 			teachers=data;
@@ -213,6 +217,18 @@ function deleteClass(classToDelete){
 		var r = confirm("Are you sure you want to delete this class?");
 			if (r == true) {
 				console.log(classToDelete);
+				console.log(studentclass);
+				studentclass.forEach(function(clas){
+					if(clas.coursecode == classToDelete.coursecode){
+						console.log ("Existing peeps enrolled");
+						$.ajax({
+						   url: '/studentEnrolled/'+clas.id,
+						   type: 'DELETE',
+						   success: function(response) {
+						   }
+						});
+					}
+				});
 				$.ajax({
 				   url: '/class/'+classToDelete.coursecode,
 				   type: 'DELETE',
