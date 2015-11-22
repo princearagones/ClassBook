@@ -1,7 +1,7 @@
 CREATE TYPE usrtype AS ENUM('student','teacher');
 
 CREATE TABLE ACCOUNT(
-	userid int(10) NOT NULL,
+	userid integer NOT NULL,
 	username VARCHAR(20) NOT NULL,
 	password VARCHAR(20) NOT NULL,
 	type usrtype,
@@ -58,18 +58,29 @@ CREATE TABLE FILE(
 );
 
 CREATE TABLE EMAIL(
-	userid VARCHAR(10),
-	email VARCHAR(20),
-	CONSTRAINT EMAIL_userid_pk PRIMARY KEY(userid),
+	id integer NOT NULL,
+	userid integer NOT NULL,
+	email VARCHAR(50) NOT NULL,
+	CONSTRAINT EMAIL_id_pk PRIMARY KEY(id),
+	CONSTRAINT EMAIL_userid_fk FOREIGN KEY(userid) REFERENCES ACCOUNT(userid),
 	CONSTRAINT EMAIL_email_uk  UNIQUE(email)
 );
+CREATE SEQUENCE email_id_seq;
+ALTER TABLE EMAIL ALTER id SET DEFAULT NEXTVAL('email_id_seq');
+
 
 CREATE TABLE CONTACT(
-	userid VARCHAR(10),
-	connum VARCHAR(15),
-	CONSTRAINT CONTACT_userid_pk PRIMARY KEY(userid),
+	id integer NOT NULL,
+	userid integer NOT NULL,
+	connum VARCHAR(50) NOT NULL,
+	CONSTRAINT CONTACT_id_pk PRIMARY KEY(id),
+	CONSTRAINT CONTACT_userid_fk FOREIGN KEY(userid) REFERENCES ACCOUNT(userid),
 	CONSTRAINT CONTACT_connum_uk UNIQUE(connum)
 );
+
+CREATE SEQUENCE contact_id_seq;
+ALTER TABLE CONTACT ALTER id SET DEFAULT NEXTVAL('contact_id_seq');
+
 
 CREATE TABLE STUDENTS_ENROLLED(
 	id SERIAL,

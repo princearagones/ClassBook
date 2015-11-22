@@ -2,6 +2,8 @@ var account = require('./../controllers/account');
 var classes = require('./../controllers/class');
 var teacher = require('./../controllers/teacher');
 var student = require('./../controllers/student');
+var contact = require('./../controllers/contact');
+var email = require('./../controllers/email');
 var studentEnrolled = require('./../controllers/studentEnrolled');
 
 
@@ -28,6 +30,13 @@ module.exports = function(router){
 		.get(teacher.find)
 		.post(teacher.insert);
 	router.route('/student')
-		.get(student.find);
+		.get(student.find)
+		.post(student.insert);
+	router.route('/contact')
+		.get(contact.find)
+		.post(contact.insert);
+	router.route('/email')
+		.get(email.find)
+		.post(email.insert);
 	return router;
 ;}
