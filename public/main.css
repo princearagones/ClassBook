@@ -18,7 +18,7 @@ h1{
 }
 
 .defaultButton{
- background: #004848;
+ 	background: #004848;
   color:#D8D8D8;
 }
 
@@ -80,6 +80,7 @@ div.classroompanel{
 	height: 50%;
 	width: 24%;
 	border-radius: 30px;
+	color: #D8D8D8;
 }
 
 div.classroompanel:hover{

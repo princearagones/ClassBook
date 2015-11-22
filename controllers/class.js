@@ -83,3 +83,10 @@ exports.remove = function(req, res, next) {
 	});
 };
 
+exports.findStudentsEnrolled = function(req,res,next){
+	db.query("SELECT studno from students_enrolled where coursecode=$1", [req.params.coursecode],
+		function(err,rows){
+			if(err) return next(err); 
+			res.send(rows.rows);
+		});
+};
