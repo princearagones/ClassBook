@@ -1,7 +1,7 @@
 CREATE TYPE usrtype AS ENUM('student','teacher');
 
 CREATE TABLE ACCOUNT(
-	userid VARCHAR(10) NOT NULL,
+	userid int(10) NOT NULL,
 	username VARCHAR(20) NOT NULL,
 	password VARCHAR(20) NOT NULL,
 	type usrtype,
@@ -9,6 +9,9 @@ CREATE TABLE ACCOUNT(
 	CONSTRAINT ACCOUNT_userid_uk UNIQUE(userid),
 	CONSTRAINT ACCOUNT_username_uk UNIQUE(username)
 );
+
+CREATE SEQUENCE account_userid_seq;
+ALTER TABLE ACCOUNT ALTER userid SET DEFAULT NEXTVAL('account_userid_seq');
 
 CREATE TABLE STUDENT AS (SELECT * FROM ACCOUNT);
 ALTER TABLE STUDENT ADD studNo varchar(10) ;

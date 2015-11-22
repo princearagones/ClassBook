@@ -92,17 +92,17 @@ var user;
 				}
 
 			});
-			if(tempuser.split("\"")[15]== "teacher"){
+			if(tempuser.split("\"")[13]== "teacher"){
 					teachers.forEach(function(teacher){
-					if(tempuser.split("\"")[3] == teacher.userid.toString()){
+					if(tempuser.split("\"")[2] == ":"+teacher.userid.toString()+","){
 						user = teacher;
 					}
 				});
 				$("#welcome").text("Hi "+user.name+"! Logged in as "+user.type);
 			}
-			else if(tempuser.split("\"")[15] == "student"){
+			else if(tempuser.split("\"")[13] == "student"){
 				students.forEach(function(student){
-					if(tempuser.split("\"")[3] == student.userid.toString()){
+					if(tempuser.split("\"")[2] == ":"+student.userid.toString()+","){
 						user = student;
 					}
 				});

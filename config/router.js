@@ -7,7 +7,10 @@ var studentEnrolled = require('./../controllers/studentEnrolled');
 
 module.exports = function(router){
 	router.route('/account')
-		.get(account.find);
+		.get(account.find)
+		.post(account.insert);
+	router.route('/account/:username')
+		.get(account.findId);
 	router.route('/class')
 		.get(classes.find)
 		.post(classes.insert);
@@ -22,7 +25,8 @@ module.exports = function(router){
 		.get(studentEnrolled.findOne)
 		.delete(studentEnrolled.remove);
 	router.route('/teacher')
-		.get(teacher.find);
+		.get(teacher.find)
+		.post(teacher.insert);
 	router.route('/student')
 		.get(student.find);
 	return router;

@@ -5,14 +5,17 @@
 		<title>Sign Up!</title>
         <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="main.css">
+        <script src="JQuery/jquery-1.11.3.min.js"></script>
+        <script src="Bootstrap/js/bootstrap.min.js"></script>
+        <script src= "teacher.js"> </script>
 	</head>
 	<body>
-		<header>
+		<a href="/"><header>
 			<img src="images/icon2.jpg" alt="icon" style="width:304px;height:200px;position;fixed;border-radius:100px;">
 			<h1>CLASSBOOK</h1>
-		</header>
+		</header> </a>
 		<div class="container" style="margin-bottom:25px;">
-            <form class="form-horizontal" role="form" action="/">
+            <form id="addTeacher" class="form-horizontal" role="form" action="/">
                 <h2>Signing up as teacher</h2>
                 <div class="form-group">
                     <label for="firstName" class="col-sm-3 control-label">Full Name</label>
@@ -34,9 +37,9 @@
                     </div>
                 </div>
                  <div class="form-group">
-                    <label for="Studno" class="col-sm-3 control-label">Employee Number</label>
+                    <label for="empno" class="col-sm-3 control-label">Employee Number</label>
                     <div class="col-sm-9">
-                        <input type="text" id="Studno" placeholder="XXXX-XXXXX" required="" class="form-control" pattern="\d{4}-\d{5}" autofocus>
+                        <input type="text" id="empno" placeholder="XXXX-XXXXX" required="" class="form-control" pattern="\d{4}-\d{5}" autofocus>
                         <span class="help-block">20XX-XXXXX e.g. 2013-12345</span>
                     </div>
                 </div>
@@ -54,7 +57,7 @@
                     </div>
                 </div>
                      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
-                     <button class="btn btn-lg btn-danger btn-block" type="submit">Cancel</button>
+                     <button class="btn btn-lg btn-danger btn-block" type="button" onclick="window.location.reload(true)">Cancel</button>
                 </div>
                 </form>
 		<footer>Aragones Feudo Vibar 2015 CMSC 127 1st semester AY: 2015-2016 </footer></center>
