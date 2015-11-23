@@ -25,7 +25,6 @@ var data={};
 				data = {
 					"username": resusername,
 					"password": respassword,
-					"vpassword": resvpassword,
 					"name": resname,
 					"employeeno": resempno,
 					"type": "teacher",

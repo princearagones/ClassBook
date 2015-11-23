@@ -50,10 +50,22 @@ getting1.done(function(){
           tabd2.innerHTML =students[i].studno;
           tabr.appendChild(tabd);
           tabr.appendChild(tabd2);
-          tab.appendChild(tabr);
+          if(type=="teacher"){
+          var tabd3 = document.createElement("td");
+
+            var butonne = document.createElement("button");
+            butonne.className = "btn btn-sm btn-danger";
+            butonne.addEventListener("click",function(){
+              unenrollclass(studentclass[i]);
+            });
+            butonne.innerHTML = "Remove";
+            tabd3.appendChild(butonne);
+            tabr.appendChild(tabd3);
 
         }
+        tab.appendChild(tabr);
       }
+    }
     }
   });
 
@@ -91,3 +103,19 @@ getting1.done(function(){
   }
 
 });*/
+
+function unenrollClass(classToUnenroll){
+		var r = confirm("Are you sure you want to remove this student?");
+			if (r == true) {
+				console.log(classToUnenroll);
+				$.ajax({
+				   url: '/studentEnrolled/'+classToUnenroll.id,
+				   type: 'DELETE',
+				   success: function(response) {
+				   		alert("Successfully kicked out student");
+						//window.location.href = "/studentlist";
+				   }
+				});
+			} else {
+			}
+	}

@@ -51,7 +51,6 @@ var type = usero2[3];
         $("#divleave").hide();
         $("#divrem").hide();
       }else{
-      	
         $("#divrem").hide();
         var lc = document.getElementById("leaveclass");
         lc.className = "btn btn-danger";

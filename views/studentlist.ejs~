@@ -2,9 +2,11 @@
 <html>
   <head>
     <script src = "../JQuery/jquery-1.11.3.min.js"></script>
+    <script src ="../clist.js"></script>
     <link rel="stylesheet" type="text/css" href="../Bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
     <script src ="../stream.js"></script>
+
     <meta charset = "utf-8">
   </head>
 
@@ -15,25 +17,32 @@
 			</header>
 			<div id="bar">
 				<div id="left" style="float:left;width:100%;">
-          <div style="float:left;width:25%;padding:5px;">
+          <div style="float:left;width:33%;padding:5px;">
                 <center>
                   <button class = "btn btn-primary" id="Homebutt" >Home</button>
                 </center>
           </div>
 
-          <div style="float:left;width:25%;padding:5px;">
+          <div style="float:left;width:33%;padding:5px;">
             <center>
-              <button class = "btn btn-primary" id="Studlist">Students</button>
+              <button class = "btn btn-primary" id="Stoodlist">Back</button>
             <center>
           </div>
 
-          <div style="float:left;width:25%;padding:5px;">
+          <div style="float:left;width:25%;padding:5px;" id="divleave">
             <center>
               <button id="leaveclass"></button>
             </center>
           </div>
 
-          <div style="float:left;width:25%;padding:5px;">
+          <div style="float:left;width:25%;padding:5px;" id="divrem">
+            <center>
+              <button id="remove">Remove Student</button>
+            </center>
+          </div>
+
+
+          <div style="float:left;width:33%;padding:5px;">
             <center>
               <a href="/" id = "logout"></a>
             <center>
@@ -56,23 +65,19 @@
       <hr class="newhr">
 
 			<br>
-      <hr class="newhr">
-			 <div class="post" style="padding:5px;">
-
-       
-      <table style= "margin-left:200px;">
-          <tr id="postcontainer">
-
-                <h2 style="float:left; margin-left:250px;">Posts: </h2><br/><br/><br/>
-                <hr class = "newhr">
-            <td>
-
-            </td>
+      <div style="padding:10px">
+        <center>
+        <table id = "studentslist" style="border-style:solid;border:2px solid white;padding:15px;width:60%">
+          <tr>
+            <th>Name</th>
+            <th>Student Number</th>
+            <th></th>
           </tr>
         </table>
-        </div>
-        <hr class="newhr">
-			</center>
+        </center>
+      </div>
+      <br>
+      <hr class="newhr">
 			<footer>
 				Aragones Feudo Vibar 2015 CMSC 127 1st semester AY: 2015-2016
 			</footer>

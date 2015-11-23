@@ -59,7 +59,12 @@
       <hr class="newhr">
 			 <div class="post" style="padding:5px;">
 
-       
+        <center>
+        <form id="addPost">
+         <textarea rows="5" cols="70" style="resize:none;color:black" placeholder="Say some announcements." id="posttext"></textarea><br/>
+        <input type="submit" name="post" value="Post" class= "btn btn-success"/>
+         </form>
+      </center>
       <table style= "margin-left:200px;">
           <tr id="postcontainer">
 
