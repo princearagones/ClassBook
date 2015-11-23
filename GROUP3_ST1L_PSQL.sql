@@ -94,6 +94,20 @@ CREATE TABLE STUDENTS_ENROLLED(
 CREATE SEQUENCE studEnrolled_id_seq;
 ALTER TABLE students_enrolled ALTER id SET DEFAULT NEXTVAL('studEnrolled_id_seq');
 
+CREATE TABLE POST(
+	postnum SERIAL,
+	posterID INTEGER,
+	crsCode VARCHAR(5),
+	postDate VARCHAR(50),
+	thePost VARCHAR(200),
+	CONSTRAINT POSTS_postnum_pk PRIMARY KEY(postnum),
+	CONSTRAINT POSTS_crsCode_fk FOREIGN KEY(crsCode) REFERENCES CLASS(courseCode),
+	CONSTRAINT POSTS_posterID_fk FOREIGN KEY(posterID) REFERENCES ACCOUNT(userid)
+);
+
+CREATE SEQUENCE post_postnum_seq;
+ALTER TABLE post ALTER postnum SET DEFAULT NEXTVAL('post_postnum_seq');
+
 INSERT INTO ACCOUNT VALUES
 (
 	'6969','kekgod','kek','student'

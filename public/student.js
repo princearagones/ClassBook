@@ -44,7 +44,7 @@ var data={};
 					alert("Student number already used");
 				}
 				else if (flag ===0){
-					var posting = $.post("/account", data);					alert(data);
+					var posting = $.post("/account", data);					
 					var getOne = $.get("/account/"+data.username,function(one){
 						data.userid= one[0].userid;
 						console.log(data);
@@ -52,9 +52,8 @@ var data={};
 						$.post("/email",data)
 						$.post("/contact", data)
 						alert("Successfully Created");
-
+						window.location.href = "/";
 					});
-					window.location.href = "/";
 				}
 		});
 	});

@@ -79,7 +79,6 @@ exports.remove = function(req, res, next) {
 		} else {
 			res.send(202, row);
 		}
-		
 	});
 };
 

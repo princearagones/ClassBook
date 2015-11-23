@@ -1,6 +1,7 @@
 var classes = [];
 var teachers = [];
 var students = [];
+var x = document.cookie;
 var classesEnrolled = [];
 var studentclass = [];
 var user;
@@ -130,6 +131,8 @@ var user;
 									var titletext=document.createTextNode(classRoom.coursetitle);	
 									var section = document.createElement("p");
 									var sectiontext=document.createTextNode(classRoom.section);
+									pan.id = classRoom.empno + ',' + classRoom.coursecode + ',' +classRoom.section;
+									pan.setAttribute("onclick","SenterStream(this.id)");
 									
 									section.appendChild(sectiontext);
 									coursetitle.appendChild(titletext);
@@ -174,6 +177,8 @@ var user;
 				var titletext=document.createTextNode(classes[i].coursetitle);	
 				var section = document.createElement("p");
 				var sectiontext=document.createTextNode(classes[i].section);
+				pan.id = classes[i].empno + ',' + classes[i].coursecode + ',' +classes[i].section;
+				pan.setAttribute("onclick","TenterStream(this.id)");
 				
 				section.appendChild(sectiontext);
 				coursetitle.appendChild(titletext);
@@ -207,6 +212,17 @@ var user;
 		});
 	});
 })();
+
+function SenterStream(i){
+		document.cookie = x +' '+i;
+		window.location.href="/Classroom2";
+}
+
+function TenterStream(i){
+	document.cookie = x +' '+i;
+	window.location.href="/Classroom1";
+}
+
 function createClass(){
 		$("#formToAdd").fadeToggle();
 		}

@@ -25,23 +25,14 @@ app.get('/signupteacher', function(req, res, next) {
 app.get('/signupstudent', function(req, res, next) {
 	res.render('signupstudent');
 });
-app.get('/Classroom/Classroom1.html', function(req, res, next) {
-	res.render('Classroom/Classroom1');
+app.get('/Classroom1', function(req, res, next) {
+	res.render('Classroom1');
 });
-app.get('/Classroom/Classroom2.html', function(req, res, next) {
-	res.render('Classroom/Classroom2');
+app.get('/Classroom2', function(req, res, next) {
+	res.render('Classroom2');
 });
-app.get('/Classroom/Classroom3.html', function(req, res, next) {
-	res.render('Classroom/Classroom3');
-});
-app.get('/Classroom/Classroom4.html', function(req, res, next) {
-	res.render('Classroom/Classroom4');
-});
-app.get('/Classroom/Classroom5.html', function(req, res, next) {
-	res.render('Classroom/Classroom5');
-});
-app.get('/Classroom/Classroom6.html', function(req, res, next) {
-	res.render('Classroom/Classroom6');
+app.get('/studentlist', function(req, res, next) {
+	res.render('studentlist');
 });
 
 

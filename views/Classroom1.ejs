@@ -1,61 +1,52 @@
 <!DOCTYPE HTML>
 <html>
   <head>
+    <script src = "../JQuery/jquery-1.11.3.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../Bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../public/main.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
     <script src ="../stream.js"></script>
     <meta charset = "utf-8">
   </head>
 
   <body>
 			<header>
-				<img src="../public/images/icon2.jpg" alt="icon" style="width:304px;height:200px;position;fixed;border-radius:100px;">
+				<img src="../images/icon2.jpg" alt="icon" style="width:304px;height:200px;position;fixed;border-radius:100px;">
 				<h1>CLASSBOOK</h1>
-				<br>
 			</header>
-
-      <hr class="newhr">
 			<div id="bar">
-        <hr>
-				<div id="left" style="float:left;width:100%;">
-          <div style="float:left;width:20%">
+        <div id="left" style="float:left;width:100%;">
+          <div style="float:left;width:25%;padding:5px">
                 <center>
-                  <a href="Panel.ejs"><button id = "home" >Home</button></a>
+                  <button class = "btn btn-primary" id = "Homebutt" >Home</button>
                 </center>
           </div>
-          <div style="float:left;width:20%">
+          <div style="float:left;width:25%;padding:5px">
             <center>
-              <button id = "remstu" onclick="removeStudent()">Remove Student</button>
+              <button class = "btn btn-danger" id = "remove">Remove Student</button>
             </center>
           </div>
-          <div style="float:left;width:20%">
+          <div style="float:left;width:25%;padding:5px">
             <center>
-              <a href="index.ejs"><button id = "showstu">Students</button></a>
-            <center>
-          </div>
-          <div style="float:left;width:20%">
-            <center>
-              <button id = "delcla"  onclick="DeleteClassroom()">Delete Classroom</button>
+              <button class = "btn btn-primary" id="Studlist">Students</button>
             <center>
           </div>
-
-          <div style="float:left;width:20%">
+          <div style="float:left;width:25%;padding:5px;">
             <center>
-              <a href="index.ejs"><button id = "logout">Log out</button></a>
+              <a href="/" id = "logout"></a>
             <center>
           </div>
 
         </div>
 			</div>
-      <hr>
       <hr class="newhr">
       <br>
       <hr class = "newhr">
 			<div id="banner">
         <hr>
 				<center>
-				<h1> INSERT COURSENAME AND SUBJECT HERE</h1>
-				<h5> INSERT INSTRUCTOR NAME HERE</h5>
+				<h1 id="bandet"> INSERT COURSENAME</h1>
+        <h2 id="bansec"> INSERT SECTION </h2>
+				<h5 id="banname"> INSERT INSTRUCTOR NAME HERE</h5>
 				</center>
 				<br>
 			</div>
@@ -66,40 +57,25 @@
 			<div class="post" style="padding:5px;">
 
 				<center>
-			<table>
-					<tr>
+        <form id="addPost">
+         <textarea rows="5" cols="70" style="resize:none;color:black" placeholder="Say some announcements." id="posttext"></textarea><br/>
+        <input type="submit" name="post" value="Post" class= "btn btn-success"/>
+         </form>
+      </center>
+			<table style= "margin-left:200px;">
+					<tr id="postcontainer">
+
+                <h2 style="float:left; margin-left:250px;">Posts: </h2><br/><br/><br/>
+                <hr class = "newhr">
 						<td>
 
-								<div id ="postername"><h4>POST NAME HERE</h4><br></div>
-
-								<p class="poster">
-									INSERT POST HERE
-								</p>
-								<br>
-								<textarea rows="5" cols="70" style="resize:none;color:black" placeholder="Enter a comment."></textarea>
-                <form>
-                  <input type="submit" name="Comment" value="Post" />
-                  <input type="submit" name="Comment" value="Attach File" />
-                </form>
-								<br>
 						</td>
 					</tr>
 				</table>
 				</div>
         <hr class="newhr">
-			</center>
 			<footer>
 				Aragones Feudo Vibar 2015 CMSC 127 1st semester AY: 2015-2016
 			</footer>
-
-      <script>
-        function removeStudent(){
-          alert("ggwp");
-        }
-        function DeleteClassroom(){
-          alert("ggwp2");
-        }
-      </script>
-
 	</body>
 </html>

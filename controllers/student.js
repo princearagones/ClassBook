@@ -42,7 +42,7 @@ exports.insert = function(req, res, next) {
 		if (err) return next(err);
 		selectOne(row.userid, function(newRow) {
 			if (!newRow) {
-				res.status(552).send({message: 'Teacher ('+row.userId+') was not created.'});
+				res.status(552).send({message: 'Student ('+row.userId+') was not created.'});
 			} else {
 				res.send(newRow);
 			}

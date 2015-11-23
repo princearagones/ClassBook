@@ -5,6 +5,7 @@ var student = require('./../controllers/student');
 var contact = require('./../controllers/contact');
 var email = require('./../controllers/email');
 var studentEnrolled = require('./../controllers/studentEnrolled');
+var post = require('./../controllers/post');
 
 
 module.exports = function(router){
@@ -38,5 +39,8 @@ module.exports = function(router){
 	router.route('/email')
 		.get(email.find)
 		.post(email.insert);
+	router.route('/post')
+		.get(post.find)
+		.post(post.insert);
 	return router;
 ;}
